@@ -1,21 +1,20 @@
-a1 = float(input('Введите коэффициент A: '))
-b1 = float(input('Введите коэффициент B: '))
-c1 = float(input('Введите коэффициент C: '))
-
-
-def equation(a, b, c):
-    if a == 0:
-        return 'При первом аргументе ноль невозможен'
-    discr = b ** 2 - 4 * a * c
-    if discr > 0:
-        x1 = (-b + discr ** 0.5) / (2 * a)
-        x2 = (-b - discr ** 0.5) / (2 * a)
-        return x1, x2
-    elif discr == 0:
-        x = -b / (2 * a)
-        return x
+while True:
+    try:
+        a = float(input('Введите коэффициент a: '))
+        b = float(input('Введите коэффициент b: '))
+        c = float(input('Введите коэффициент c: '))
+    except Exception:
+        print('Введен неверный тип данных(буквы и пустые пробелы использовать нельзя)')
     else:
-        return 'Корней нет'
-
-
-print('Корни уравнения: ' + str(equation(a1, b1, c1)))
+        discr = b**2 - 4*a*c
+        if discr < 0:
+            print('Корней нет')
+        elif discr == 0:
+            x = -b / (2 * a)
+            print('x = ' + str(x))
+        else:
+            x1 = (-b + discr ** 0.5) / (2 * a)
+            x2 = (-b - discr ** 0.5) / (2 * a)
+            print('x1 = ' + str(x1))
+            print('x2 = ' + str(x2))
+        break
